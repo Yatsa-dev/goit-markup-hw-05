@@ -47,7 +47,7 @@ lang="ru">
                     <section class="hero"> 
                         <div class="container">
                         <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-                        <button class="primary-button"><span class="primary-button">Заказать услугу</span></button>
+                        <button data-modal-open class="primary-button"><span class="primary-button">Заказать услугу</span></button>
                         </div>
                     </section>
                 <!--Особенности-->
@@ -345,6 +345,14 @@ lang="ru">
                     </div>
                 </div>
             </footer>
+             <!-- Modal window  -->
+            <div class="backdrop is-hidden" data-modal>
+                <div class="modal">
+                    <button data-modal-close class="button-close">Закрыть</button>
+                </div>
+            </div>
+
+            <script src="./js/modal.js"></script>
     </body>
 </html>
 
