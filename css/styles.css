@@ -50,9 +50,7 @@ h6 {
   margin-left: 93px;
 }
 .nav-container .send + .send {
-  margin-left: 50px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  padding-left: 50px;
 }
 .auth-icon {
   fill: currentColor;
@@ -142,7 +140,7 @@ ul {
 
 /*Site-nav*/
 .site-nav {
-  display: flex;
+  /* display: flex; */
 
   color: var(--title-text-color);
 
@@ -155,8 +153,26 @@ ul {
 .site-nav.link:focus {
   color: var(--accent-color);
 }
+.site-nav.link {
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
 .site-nav.link.current {
   color: var(--accent-color);
+}
+.site-nav.link.current::after {
+  content: '';
+
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 /* Hero */
 .hero-container {
@@ -603,27 +619,35 @@ ul {
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.item > .link {
-  display: block;
-}
+
 .picture {
   display: block;
   max-width: 100%;
   height: auto;
 }
-
-.thumb::before {
-  position: absolute;
+.item > .link:hover .thumb {
+  transform: translateY(0);
+}
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
+.thumb {
   display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
   content: '';
+
   width: 100%;
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 1;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.thumb {
-  position: relative;
-}
+
 .text-box {
   width: 322px;
   margin: 0;
