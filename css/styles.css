@@ -19,6 +19,10 @@ h6 {
   --primary-bg-color: #ffffff;
   --second-bg-color: #2f303a;
   --section-bg-color: #f5f4fa;
+  --shadow-big: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  --shadow-litle: 0px 1px 1px rgba(0, 0, 0, 0.12),
+    0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .container {
@@ -26,8 +30,6 @@ h6 {
   margin-right: auto;
   width: 1200px;
   padding: 0px 15px;
-
-  /* outline: 3px solid teal; */
 }
 
 /* Стили для index.html */
@@ -41,7 +43,6 @@ h6 {
 }
 .site-navigation {
   display: flex;
-  justify-content: flex-start;
 }
 
 .nav-container {
@@ -57,9 +58,7 @@ h6 {
   box-sizing: content-box;
   padding-right: 10px;
 }
-.send {
-  display: flex;
-}
+
 .auth-nav {
   display: flex;
   align-items: center;
@@ -71,8 +70,6 @@ h6 {
 }
 .auth-nav .send + .send {
   padding-left: 50px;
-  padding-top: 32px;
-  padding-bottom: 32px;
 }
 .auth-nav .link:hover,
 .auth-nav .link:focus {
@@ -83,7 +80,6 @@ h6 {
   color: var(--accent-color);
 }
 .logo-container {
-  align-items: center;
   display: flex;
 }
 
@@ -120,11 +116,12 @@ ul {
 /* logo */
 .logo-container > .logo {
   align-items: center;
-  margin-top: 24px;
-  margin-bottom: 25px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 .logo-container p {
   margin: 0;
+  padding: 0;
 }
 .logo {
   font-family: Raleway;
@@ -140,8 +137,6 @@ ul {
 
 /*Site-nav*/
 .site-nav {
-  /* display: flex; */
-
   color: var(--title-text-color);
 
   font-weight: 500;
@@ -337,8 +332,7 @@ ul {
   margin: 0;
 }
 .features-box li {
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-big);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--second-text-color);
   width: 270px;
@@ -550,8 +544,7 @@ ul {
   width: 528px;
   height: 581px;
   padding: 20px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-big);
   border-radius: 4px;
   background-color: var(--primary-bg-color);
 }
@@ -576,6 +569,7 @@ ul {
 .button-close:hover,
 .button-close:focus {
   fill: var(--accent-color);
+  box-shadow: var(--shadow-big);
 }
 /* Стили для portfolio.html */
 /* Line Header */
@@ -598,8 +592,7 @@ ul {
 }
 .item > .link:hover,
 .item > .link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow-litle);
 }
 
 .main-items .item {
@@ -641,7 +634,8 @@ ul {
   max-width: 100%;
   height: auto;
 }
-.item > .link:hover .thumb {
+.item > .link:hover .thumb,
+.item > .link:focus .thumb {
   transform: translateY(0);
 }
 .overlay {
@@ -695,8 +689,7 @@ ul {
 .filter-list > .button:focus {
   color: var(--second-text-color);
   background-color: var(--accent-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-big);
   cursor: pointer;
 }
 .filter-list > .button {
