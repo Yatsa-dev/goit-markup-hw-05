@@ -556,10 +556,26 @@ ul {
   background-color: var(--primary-bg-color);
 }
 .button-close {
+  align-items: center;
+  display: flex;
   position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
+  margin-top: 8px;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  background-color: var(--main-background-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #000000;
+  fill: currentColor;
+}
+.button-close:hover,
+.button-close:focus {
+  fill: var(--accent-color);
 }
 /* Стили для portfolio.html */
 /* Line Header */
