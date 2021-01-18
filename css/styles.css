@@ -23,6 +23,7 @@ h6 {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   --shadow-litle: 0px 1px 1px rgba(0, 0, 0, 0.12),
     0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container {
@@ -156,7 +157,18 @@ ul {
 .site-nav.link.current {
   color: var(--accent-color);
 }
-.site-nav.link.current::after {
+.nav-container.current-line {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}
+/* .site-nav.link.current.line::after {
   content: '';
 
   display: block;
@@ -168,7 +180,30 @@ ul {
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
+
+  opacity: 1;
+} */
+.site-nav.link::after {
+  content: '';
+
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+
+  transform: scaleX(0);
+  transition: transform 250ms var(--timing-function);
 }
+.site-nav.link:hover:after,
+.site-nav.link:focus:after {
+  transform: scaleX(1);
+}
+
 /* Hero */
 .hero-container {
 }
@@ -529,17 +564,22 @@ ul {
   top: 0;
   left: 0;
 
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
+
   background-color: rgba(0, 0, 0, 0.2);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.8);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 528px;
   height: 581px;
@@ -547,18 +587,23 @@ ul {
   box-shadow: var(--shadow-big);
   border-radius: 4px;
   background-color: var(--primary-bg-color);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--timing-function);
 }
 .button-close {
-  align-items: center;
-  display: flex;
   position: absolute;
   top: 0;
   right: 0;
-  margin-top: 8px;
-  margin-right: 8px;
   width: 30px;
   height: 30px;
+
+  align-items: center;
+  display: flex;
+  margin-top: 8px;
+  margin-right: 8px;
   padding: 0;
+
   background-color: var(--main-background-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -655,7 +700,7 @@ ul {
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 1;
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms var(--timing-function);
 }
 
 .text-box {
